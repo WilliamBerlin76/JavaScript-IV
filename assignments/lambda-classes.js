@@ -23,6 +23,15 @@ class Instructor extends Person{
     grade(Student, subject){
         return `${Student.name} recieves a perfect score on ${subject}`;
     }
+    adjustGrade(Student){
+        let randomAmount = Math.floor(Math.random() * 40) + 1;
+        let addOrSubtract = Math.floor(Math.random() * 10) + 1;
+        if (addOrSubtract > 5 ) {
+           return Student.grade + randomAmount
+        } else {
+           return Student.grade - randomAmount
+        }
+    }
 };
 
 class Student extends Person{
@@ -30,11 +39,12 @@ class Student extends Person{
         super(attributes);
         this.previousBackground = attributes.previousBackground,
         this.className = attributes.className,
-        this.favSubjects = attributes.favSubjects
+        this.favSubjects = attributes.favSubjects,
+        this.grade = attributes.grade
     }
     listsSubjects(){
-       return this.favSubjects.forEach(function(item){
-            console.log(item);
+       this.favSubjects.forEach(function(item){
+           console.log(item);
         })
     }
     PRAssignment(subject){
@@ -42,6 +52,13 @@ class Student extends Person{
     }
     sprintChallenge(subject){
         return `${Student.name} has begun sprint challenge on ${subject}`
+    }
+    graduate(Student){
+        if (Student.grade >= 70) {
+            return `ready to Graduate!`
+        } else {
+            return `Go back to grading their assignments to increase score`
+        }
     }
 }
 
@@ -74,7 +91,8 @@ const will = new Student({
     location: 'Houston',
     previousBackground: 'Musician/Student',
     className: 'web23',
-    favSubjects: ['JavaScript', 'HTML', 'CSS']
+    favSubjects: ['JavaScript', 'HTML', 'CSS'],
+    grade: 80
 });
 
 const arthur = new ProjectManager({
@@ -86,12 +104,15 @@ const arthur = new ProjectManager({
     catchPhrase: '*insert zoom link',
     gradClassName: 'CS one of them',
     favInstructor: britt.name
-})
+});
 
-console.log(will.listsSubjects())
-console.log(will.sprintChallenge('JavaScript'))
-console.log(will.PRAssignment('classes'))
-console.log(britt.demo('classes'))
-console.log(britt.grade(will, 'classes'))
-console.log(arthur.standUp('#web23_Arthur'))
-console.log(arthur.debugsCode(will, 'prototypes'))
+console.log(will.listsSubjects());
+console.log(will.sprintChallenge('JavaScript'));
+console.log(will.PRAssignment('classes'));
+console.log(britt.demo('classes'));
+console.log(britt.grade(will, 'classes'));
+console.log(arthur.standUp('#web23_Arthur'));
+console.log(arthur.debugsCode(will, 'prototypes'));
+console.log(britt.speak());
+console.log(britt.adjustGrade(will));
+console.log(will.graduate(will));
