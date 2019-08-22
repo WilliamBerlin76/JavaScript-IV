@@ -27,10 +27,11 @@ class Instructor extends Person{
         let randomAmount = Math.floor(Math.random() * 40) + 1;
         let addOrSubtract = Math.floor(Math.random() * 10) + 1;
         if (addOrSubtract > 5 ) {
-           return Student.grade + randomAmount
+            Student.grade = Student.grade + randomAmount
         } else {
-           return Student.grade - randomAmount
+            Student.grade = Student.grade - randomAmount
         }
+        return Student.grade;
     }
 };
 
@@ -114,5 +115,6 @@ console.log(britt.grade(will, 'classes'));
 console.log(arthur.standUp('#web23_Arthur'));
 console.log(arthur.debugsCode(will, 'prototypes'));
 console.log(britt.speak());
-console.log(britt.adjustGrade(will));
-console.log(will.graduate(will));
+console.log(will.grade);
+console.log(britt.adjustGrade(will))
+console.log(will.graduate(will))
