@@ -18,7 +18,7 @@ class Instructor extends Person{
         this.catchPhrase = attributes.catchPhrase
     }
     demo(subject){
-        return `today we are learning about ${subject}`;
+        return `Today we are learning about ${subject}`;
     }
     grade(Student, subject){
         return `${Student.name} recieves a perfect score on ${subject}`;
@@ -33,15 +33,15 @@ class Student extends Person{
         this.favSubjects = attributes.favSubjects
     }
     listsSubjects(){
-        this.favSubjects.forEach(function(item){
-            console.log(item)
+       return this.favSubjects.forEach(function(item){
+            console.log(item);
         })
     }
     PRAssignment(subject){
         return `${Student.name} has submitted a PR for ${subject}`
     }
     sprintChallenge(subject){
-        return `${Student.name} had begun sprint challenge on ${subject}`
+        return `${Student.name} has begun sprint challenge on ${subject}`
     }
 }
 
@@ -87,3 +87,11 @@ const arthur = new ProjectManager({
     gradClassName: 'CS one of them',
     favInstructor: britt.name
 })
+
+console.log(will.listsSubjects())
+console.log(will.sprintChallenge('JavaScript'))
+console.log(will.PRAssignment('classes'))
+console.log(britt.demo('classes'))
+console.log(britt.grade(will, 'classes'))
+console.log(arthur.standUp('#web23_Arthur'))
+console.log(arthur.debugsCode(will, 'prototypes'))
