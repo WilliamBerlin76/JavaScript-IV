@@ -24,13 +24,18 @@ class Instructor extends Person{
         return `${Student.name} recieves a perfect score on ${subject}`;
     }
     adjustGrade(Student){
-        let randomAmount = Math.floor(Math.random() * 40) + 1;
+        let randomAmount = Math.floor(Math.random() * 100) + 1;
         let addOrSubtract = Math.floor(Math.random() * 10) + 1;
         if (addOrSubtract > 5 ) {
             Student.grade = Student.grade + randomAmount
         } else {
             Student.grade = Student.grade - randomAmount
         }
+        if (Student.grade > 100) {
+            Student.grade = 100
+        } else if (Student.grade < 0) {
+            Student.grade = 0
+        };
         return Student.grade;
     }
 };
@@ -47,21 +52,21 @@ class Student extends Person{
        this.favSubjects.forEach(function(item){
            console.log(item);
         })
-    }
+    };
     PRAssignment(subject){
         return `${Student.name} has submitted a PR for ${subject}`
-    }
+    };
     sprintChallenge(subject){
         return `${Student.name} has begun sprint challenge on ${subject}`
-    }
+    };
     graduate(Student){
         if (Student.grade >= 70) {
             return `ready to Graduate!`
         } else {
             return `Go back to grading their assignments to increase score`
         }
-    }
-}
+    };
+};
 
 class ProjectManager extends Instructor{
     constructor(attributes){
@@ -75,7 +80,7 @@ class ProjectManager extends Instructor{
     debugsCode(Student, subject){
         return `${this.name} debugs ${Student.name}'s code on ${subject}`
     }
-}
+};
 
 const britt = new Instructor({
     name: 'Britt',
@@ -118,3 +123,4 @@ console.log(britt.speak());
 console.log(will.grade);
 console.log(britt.adjustGrade(will));
 console.log(will.graduate(will));
+console.log(will.grade);
