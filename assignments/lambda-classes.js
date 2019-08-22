@@ -59,3 +59,31 @@ class ProjectManager extends Instructor{
     }
 }
 
+const britt = new Instructor({
+    name: 'Britt',
+    age: '???',
+    location: 'Canada',
+    favLanguage: 'JavaScript',
+    specialty: 'teaching code',
+    catchPhrase: 'time for a break-out session!'
+});
+
+const will = new Student({
+    name: 'Will',
+    age: 23,
+    location: 'Houston',
+    previousBackground: 'Musician/Student',
+    className: 'web23',
+    favSubjects: ['JavaScript', 'HTML', 'CSS']
+});
+
+const arthur = new ProjectManager({
+    name: 'Arthur',
+    age: '??? immortal',
+    location: 'where he is',
+    favLanguage: 'JavaScript',
+    specialty: 'teaching code',
+    catchPhrase: '*insert zoom link',
+    gradClassName: 'CS one of them',
+    favInstructor: britt.name
+})
