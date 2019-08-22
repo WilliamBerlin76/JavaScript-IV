@@ -116,5 +116,5 @@ console.log(arthur.standUp('#web23_Arthur'));
 console.log(arthur.debugsCode(will, 'prototypes'));
 console.log(britt.speak());
 console.log(will.grade);
-console.log(britt.adjustGrade(will))
-console.log(will.graduate(will))
+console.log(britt.adjustGrade(will));
+console.log(will.graduate(will));
